@@ -11,6 +11,5 @@ describe('Demo web tests', () => {
 
         inventoryPage.elements.titleSpan()
             .should('have.text', 'Products');
-
     });
 });

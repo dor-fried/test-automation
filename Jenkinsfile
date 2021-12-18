@@ -13,8 +13,6 @@ def getBuildUser(){
 pipeline{
    agent any
 
-  tools {nodejs "nodejs"}
-  
    environment{
        BUILD_USER = ''
    }
@@ -28,6 +26,9 @@ pipeline{
        ansiColor('xterm')
    }
 
+  tools {nodejs "nodejs"}
+
+  stages {
    stages{
        stage('Build'){
            steps{

@@ -26,8 +26,6 @@ pipeline{
        ansiColor('xterm')
    }
 
-  tools {nodejs "nodejs"}
-
   stages {
    stages{
        stage('Build'){

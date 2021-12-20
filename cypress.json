@@ -1,5 +1,10 @@
 {
     "baseUrl": "https://www.saucedemo.com",
     "chromeWebSecurity": false,
-    "video": false
+    "video": false,
+    "reporter": "junit",
+    "reporterOptions": {
+        "mochaFile": "results/cypress-report.xml",
+        "toConsole": true
+    }
 }

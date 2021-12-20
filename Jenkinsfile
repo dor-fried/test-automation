@@ -15,7 +15,7 @@ pipeline {
         }
         stage('e2e Tests') {
             steps {
-                sh 'npm run cypress'
+                sh './node_modules/.bin/cypress run --browser chrome'
             }
         }
         stage('Deploy') {

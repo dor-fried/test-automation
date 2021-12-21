@@ -20,7 +20,7 @@ pipeline {
         }
         stage('Deploy') {
             steps {
-        publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: false, reportDir: '/Users/dorfried/Desktop/Projects/cypress/cypress/reports', reportFiles: 'index.html', reportName: 'HTML Report', reportTitles: ''])
+            publishHTML([allowMissing: true, alwaysLinkToLastBuild: true, keepAll: true, reportDir: '/Users/dorfried/Desktop/Projects/cypress/cypress/reports', reportFiles: 'index.html', reportName: 'HTML Report', reportTitles: ''])            }
+        }
     }
-   }
 }

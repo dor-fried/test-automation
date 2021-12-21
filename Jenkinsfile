@@ -18,9 +18,16 @@ pipeline {
                 sh './node_modules/.bin/cypress run --browser chrome'
             }
         }
-        stage('Deploy') {
-            steps {
-            publishHTML([allowMissing: true, alwaysLinkToLastBuild: true, keepAll: true, reportDir: 'cypress/cypress/reports', reportFiles: 'index.html', reportName: 'HTML Report', reportTitles: ''])            }
-        }
-    }
+stage('Deploy'){
+           steps{
+               echo "Deploying the application"
+           }
+       }
+   }
+
+   post{
+       always{
+           publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: true, reportDir: 'cypress/report', reportFiles: 'index.html', reportName: 'HTML Report', reportTitles: ''])
+       }
+   }
 }

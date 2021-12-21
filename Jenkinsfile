@@ -28,6 +28,7 @@ stage('Deploy'){
    post{
        always{
            publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: true, reportDir: '/Users/dorfried/Desktop/Projects/cypress/cypress/reports', reportFiles: 'index.html', reportName: 'HTML Report', reportTitles: ''])
+            System.setProperty("hudson.model.DirectoryBrowserSupport.CSP","")
        }
    }
 }

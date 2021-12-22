@@ -7,6 +7,11 @@ pipeline {
         CHROME_BIN = '/bin/google-chrome'
     }
 
+    parameters{
+       string(name: "SPEC", defaultValue: "cypress/integration/**/**", description:"Ej: cypress/integration/end-to-end-tests/*.spec.js")
+       choice(name: "BROWSER", choices: ['chrome', 'edge', 'firefox'], description: "Select a browser to run your scripts.")
+   }
+
     stages {
         stage('Dependencies') {
             steps {

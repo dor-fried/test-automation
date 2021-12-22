@@ -20,7 +20,7 @@ pipeline {
         }
         stage('e2e Tests') {
             steps {
-                sh "npx cypress run --browser ${BROWSER} --spec ${SPEC}"
+                sh './node_modules/.bin/cypress run --browser ${BROWSER} --spec ${SPEC}'
                 //sh './node_modules/.bin/cypress run --browser chrome'
             }
         }

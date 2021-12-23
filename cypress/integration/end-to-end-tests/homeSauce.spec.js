@@ -2,15 +2,17 @@ import homeSoucePage from '../../pages/homeSaucePage'
 import inventoryPage from '../../pages/inventoryPage'
 
 describe('Demo web tests', () => {
-
-    beforeEach(() => {
-        cy.visit('https://www.saucedemo.com')
+    beforeEach(function () {
+        cy.visit('https://www.saucedemo.com');
+        cy.fixture('dataUsers').then(function (dataJson) {
+            this.dataJson = dataJson
+        });
     });
 
     it('should login to page', function () {
 
-        homeSoucePage.typeUsername('standard_user');
-        homeSoucePage.typePassword('secret_sauce');
+        homeSoucePage.typeUsername(this.dataJson.userNameValid);
+        homeSoucePage.typePassword(this.dataJson.passwordValid);
         homeSoucePage.clickLogin();
 
         inventoryPage.elements.titleSpan()
@@ -19,8 +21,8 @@ describe('Demo web tests', () => {
 
     it('should display locked out message', function () {
 
-        homeSoucePage.typeUsername('locked_out_user');
-        homeSoucePage.typePassword('secret_sauce');
+        homeSoucePage.typeUsername(this.dataJson.userNameLocked);
+        homeSoucePage.typePassword(this.dataJson.passwordValid);
         homeSoucePage.clickLogin();
 
         inventoryPage.elements.errorMessage()
@@ -29,8 +31,8 @@ describe('Demo web tests', () => {
 
     it('should display incorrect username message', function () {
 
-        homeSoucePage.typeUsername('dor123');
-        homeSoucePage.typePassword('secret_sauce');
+        homeSoucePage.typeUsername(this.dataJson.incorrectUserName);
+        homeSoucePage.typePassword(this.dataJson.passwordValid);
         homeSoucePage.clickLogin();
 
         inventoryPage.elements.errorMessage()
@@ -39,8 +41,8 @@ describe('Demo web tests', () => {
 
     it('should display incorrect password message', function () {
 
-        homeSoucePage.typeUsername('locked_out_user');
-        homeSoucePage.typePassword('gsgsd');
+        homeSoucePage.typeUsername(this.dataJson.userNameValid);
+        homeSoucePage.typePassword(this.dataJson.incorrectPassword);
         homeSoucePage.clickLogin();
 
         inventoryPage.elements.errorMessage()

@@ -1,0 +1,7 @@
+{
+  "userNameValid": "standard_user",
+  "userNameLocked": "locked_out_user",
+  "passwordValid": "secret_sauce",
+  "incorrectUserName": "dor123",
+  "incorrectPassword": "gsgsd"
+}

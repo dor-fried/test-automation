@@ -15,6 +15,7 @@ describe('Demo web tests', () => {
         homeSoucePage.typePassword(this.dataJson.passwordValid);
         homeSoucePage.clickLogin();
 
+        cy.title().should('eq', 'Swag Labs')
         inventoryPage.elements.titleSpan()
             .should('have.text', 'Products');
     });

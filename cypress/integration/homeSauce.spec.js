@@ -1,5 +1,5 @@
-import homeSoucePage from '../../pages/homeSaucePage'
-import inventoryPage from '../../pages/inventoryPage'
+import homeSoucePage from '../pages/homeSaucePage'
+import inventoryPage from '../pages/inventoryPage'
 
 describe('Demo web tests', () => {
     beforeEach(function () {
